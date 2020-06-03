@@ -1,0 +1,142 @@
+
+{% extends 'base.html' %}
+{% load cart_tags %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<div class="covercase">
+    <div class="begin container">
+        <h1 style="color:green;">INDUS-MEGA FARMS</h1>
+        <p class="reveal">Unveiling the hidden
+            potentials<br/> of Agriculture..</p>
+            <div class="collect">
+                <button class="collections">Gallery</button>
+            </div>
+        </div>
+        <div class="advertisements">
+            <div class="advert1">
+                <div class="advert1-text">
+                    <h3>It's rush<br>hour for the crops.</h3>
+                    
+                </div>
+            </div>
+            <div class="advert2">
+                <div class="advert2-text">
+                    <h3>Farming<br>Business is real business.</h3>
+                </div>
+            </div>
+        </div>
+        <div class="services">
+            <h2>Services</h2>
+            <div class="services-container">
+                <div class="raw_materials">
+                    <h3>Raw Materials</h3>
+                    <div class="content">
+                        <i class="one fas fa-truck fa-5x"></i>
+                        <p>Aggregate raw materials to companies across Nigeria.</p>
+                    </div>
+                </div>
+                
+                <div class="engagement">
+                    <h3>Outreach</h3>
+                    <div class="content">
+                        <i class="one fas fa-child fa-5x"></i>
+                        <p>Engage young people into <br/>agro-related Adventures.</p>
+                    </div>
+                </div>
+                
+                <div class="adverts">
+                    <h3>Publicity</h3>
+                    <div class="content">
+                        <i class=" one fas fa-bell fa-5x"></i>
+                        <p>Enlarge your customer reach through our effective adverts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <span id="benefits"></span>
+        <div class="benefits">
+            <h1 class="benefits-header" style="color:green;">BENEFITS</h1>
+            <div class="benefits_container">
+                <div class="access">
+                    <div>
+                        <h2>Access</h2>
+                        <i class="fas fa-user-secret fa-3x"></i>
+                        <p>
+                            Get easy access to the next market through a reliable intermediary.</p>
+                    </div>
+                </div>
+                <div class="stocks">
+                    <div>
+                        <h2>Stocks</h2>
+                        <i class="fas fa-chart-line fa-3x"></i>
+                        <p>Increase your sales through our effective adverts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="benefits_container2">
+                <div class="loans">
+                    <div>
+                        <h2>Crowd funding</h2>
+                        <i class="fas fa-handshake fa-3x"></i>
+                        <p>Secure your future with our tested and trusted saving system.</p>
+                    </div>
+                </div>
+                
+                <div class="promos">
+                    <div>
+                        <h2>Promos</h2>
+                        <i class="fas fa-star fa-3x"></i>
+                        <p>Refer and stand a chance to win our grand prices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="features">
+        <center><h1 class="">Features and Events</h1></center>
+        
+        <div class="features_wrapper">
+            <p>
+                Register for our competitions and
+                earn a chance to win our top prices.
+            </p>
+            <div class="images">
+                <div class="competition">
+                    <img src="{% static 'images/trophy.svg' %}" alt="">
+                    <span>IMchallenge 2021. Anticipate!!! Strictly for students.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<a class="top">
+        <i class="fas fa-caret-up" style="color: #fff"></i>
+    </a>
+<script>
+var det = document.querySelector('.top');
+det.addEventListener('click',function(){
+    window.scrollTo({
+        top:0,
+        left:0,
+    })
+})
+</script>
+<script src="{% static 'js/benefits.min.js' %}"></script>
+
+{% endblock %}
+
+{% block mobile_entry %}
+{% if user.is_authenticated %}
+
+<a href="{% url 'users:user_home' %}" class="mobile_entry" style="color:green;"><i class="fas fa-user"></i></a>
+<a href="{% url 'products:order_final' %}" style="position: fixed;right:6rem;display:flex;align-items: center;color:green;">
+    <span class="badge badge-success">{{request.user|cart_count}}</span>
+    <i class="fas fa-shopping-cart"></i>
+</a>
+{% else %}
+<a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+{% endif %} 
+{% endblock mobile_entry %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load cart_tags %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/challenge.css' %}">
+
+<div class="lead-race">
+    <h1 style="vertical-align:middle;">
+        <img src="{% static 'images/trophy.svg' %}" alt="" style="width:30px;height:40px">
+        LEAD THE RACE AND WIN OUR GRAND PRICES</h1>
+        <div class="date_and_info">
+            <h4>September 2021 on the go!!!</h4>
+            <h4>Get the highest Number of Referrals to 
+                be Our Champion
+            </h4>
+        </div>
+    </div>
+    
+    <div class="countdown">
+        
+    </div>
+    <div class="mailist_list_request">
+        <p>Join Our IMchallenge mailing list to keep being updated.</p>
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
+    <script src="{% static 'js/countdown.min.js' %}"></script>
+
+    {% endblock %}
+    {% block mobile_entry %}
+    {% if user.is_authenticated %}
+    
+    <a href="{% url 'users:user_home' %}" class="mobile_entry" style="color:green;"><i class="fas fa-user"></i></a>
+    <a href="{% url 'products:order_final' %}" style="position: fixed;right:6rem;display:flex;align-items: center;color:green;">
+        <span class="badge badge-success">{{request.user|cart_count}}</span>
+        <i class="fas fa-shopping-cart"></i>
+    </a>
+    {% else %}
+    <a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+    {% endif %} 
+    {% endblock mobile_entry %}

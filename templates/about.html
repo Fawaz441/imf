@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load cart_tags %}
+{% load static %}
+{% block alt_nav_login %}
+<a href="{% url 'users:signup' %}" class="alt-login alt-signup"><i class="fas fa-user-plus"></i></a>
+{% endblock %}
+{% block main_signup %}
+<li><a href="{% url 'users:signup' %}" id="main-signup"><i class="fas fa-user-plus"></i></a></li>
+{% endblock %}
+{%block content %}
+    <link rel="stylesheet" href="{% static 'css/about.min.css' %}">
+<div class="about_container">
+    <h1>About <span style="color:green">Indus-Mega Farms</span></h1>
+    <p>
+        Founded in 2019, Indus-Mega Farms is a gap-bridger between 
+        industrial markets and small farms. We encourage both small and large holder farmers to produce better by
+        creating a working a zero-waste/funding farming system in Nigeria. We also have built platforms to make agriculture attractive
+        to young minds in Nigerian universities.
+
+    </p>
+</div>
+{% endblock %}
+
+   
+{% block mobile_entry %}
+{% if user.is_authenticated %}
+
+<a href="{% url 'users:user_home' %}" class="mobile_entry"><i class="fas fa-user"></i></a>
+<a href="{% url 'products:order_final' %}" style="position: fixed;right:6rem;display:flex;align-items: center;color:green;">
+<span class="badge badge-success">{{request.user|cart_count}}</span>
+<i class="fas fa-shopping-cart"></i>
+</a>
+{% else %}
+<a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+{% endif %} 
+{% endblock mobile_entry %}

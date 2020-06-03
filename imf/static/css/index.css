@@ -1,0 +1,89 @@
+.covercase{margin:1rem}
+.container h1{font-size:64px;color:#10740d;margin-bottom:.9rem}
+.container p{margin:0;font-size:2rem;line-height:1.3}
+.begin{position:relative}
+.collect{display:flex;right:0;bottom:.5rem;position:absolute;margin-top:3rem}
+.top{background:#645757;opacity:.4;color:#fff;cursor:pointer;height:30px;width:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:fixed;right:1rem;bottom:1rem}
+.collections{background:#10740d;width:180px;height:61px;text-decoration:none;color:#fff;font-size:1.125rem;padding:1rem 2rem;border:none;outline:0;margin-right:5px;transition:.3s transform;box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)}
+.collections:hover{background:#319b2d;transform:scale(1.035)}
+.advertisements{display:flex;justify-content:space-around;margin-top:3rem}
+.advert1{height:316.84px;width:550px;background:url(../images/farmers.jfif);background-size:cover;line-height:1.1;color:#fff;position:relative;transition:.3s transform;margin-right:100px}
+.advert1::after{content:"";display:block;background:rgba(0,0,0,.5);background-size:cover;background-position:center;height:316.84px;position:absolute;width:100%;z-index:1;border-radius:6px}
+.advert2{position:relative;background:url(../images/field-min.jpg);background-size:cover;line-height:1.1;color:#fff;height:300px;width:400px;margin-top:3rem;transition:.3s transform;overflow:hidden}
+.advert2::after{content:"";display:block;background:rgba(0,0,0,.5);background-size:cover;background-position:center;position:absolute;height:100%;width:100%;top:0;z-index:1;border-radius:6px}
+.advert1,.advert2{border-radius:6px}
+.advert1:hover::after,.advert2:hover::after{box-shadow:10px 5px 2px rgba(0,0,0,.3);background:rgba(0,0,0,.3)}
+.advert1:hover,.advert2:hover{transform:scale(1.045)}
+.advert1-text,.advert2-text{position:absolute;left:2rem;bottom:1rem;z-index:2}
+.advert1-text h3{font-size:32px}
+.advert2-text h3{font-size:48px}
+.services{margin-top:100px;background:#f4f4f4;padding-left:2rem}
+.services-container{display:flex;justify-content:center;transition:1s ease-in-out;transform:translateY(15px)}
+.services div{border-radius:10px}
+.services h2{text-transform:uppercase;font-size:46px;color:#10740d;margin-bottom:7px}
+.services p{font-size:24px}
+.adverts h3,.engagement h3,.raw_materials h3{color:#fff;font-weight:400;font-size:35px;padding-top:1rem;padding-bottom:1rem;margin-top:0;padding-left:1rem;border-top-left-radius:5px;border-top-right-radius:5px}
+.adverts,.engagement,.raw_materials{background:#0e4b38;width:27.7vw;margin-right:4vw;padding-bottom:2rem;color:#f2f2f2}
+.adverts h3,.engagement h3,.raw_materials h3{background:#0c7760}
+.content{padding-left:2rem}
+.one{color:#61e75a;margin-bottom:1rem}
+.benefits{margin-top:7rem;transition:.4s all;position:relative}
+.benefits h2{font-size:40px}
+.benefits-header{margin-bottom:7px;padding-left:2rem}
+.benefits_container{margin-top:0;display:flex;justify-content:center;height:200px}
+.benefits_container2{display:flex;justify-content:center;height:200px}
+.scrolled-header{background:red}
+.access{background-image:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.9)),url(../images/rice-min.jpg)}
+.stocks{background-image:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.9)),url(../images/benefit2.JPG)}
+.loans{background-image:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.9)),url(../images/loans.jpg)}
+.promos{background-image:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.9)),url(../images/promos.JPG)}
+.access,.loans,.promos,.stocks{background-size:cover;background-position:center;width:45vw;height:200px;color:#f3f3f3;position:relative;padding-left:2rem;padding-right:2rem;text-align:center}
+.access div,.loans div,.promos div,.stocks div{position:absolute;z-index:2;overflow:hidden}
+.benefits_container p,.benefits_container2 p{font-size:1rem;margin-top:.5rem}
+.access,.loans,.promos,.stocks{display:flex;align-items:center;flex-direction:column;justify-content:center}
+.features{margin-top:100px;background:#f9f9f9;width:100%;text-align:center}
+.features h1{color:#10740d;box-shadow:0 0 10px 0 green;width:fit-content;border-radius:5px;padding:1rem;margin-bottom:2rem}
+.features_wrapper{background:#f9f9f9;padding:2rem 1rem}
+.features_wrapper .images img{height:100px;width:150px}
+.competition{margin-bottom:2rem}
+@media(max-width:600px){
+.competition{display:grid;grid-template-columns:1fr 1fr;justify-items:center}
+.competition span{display:flex;align-items:center;justify-content:center}
+}
+@media(max-width:952px){
+.advertisements{flex-direction:column}
+.services-container div{padding-top:0;padding-right:0}
+.begin p{font-size:20px;margin-top:1rem;margin:0;margin-bottom:1rem}
+.collect{transform:translateY(1rem)}
+.collections{width:120px;height:50px;padding:0;font-size:1rem;background:#11610f}
+}
+@media(max-width:760px){
+.begin h1{margin:0;font-size:3rem}
+.begin{display:flex;flex-direction:column}
+.collect{transform:translateY(1rem)}
+.collections{width:100px;height:40px;padding:0;font-size:1rem;background:#11610f}
+.advert1,.advert1::after{height:280px;margin-right:3rem;width:80vw}
+.advert1{margin-right:3rem;height:280px;width:80vw;margin-left:1rem}
+.advert2{display:none}
+.advert2 h3{font-size:1.5rem}
+.services{margin-top:30px;padding-left:1rem}
+.services h2{padding-top:43px;font-size:40px;margin:0}
+.services-container{flex-direction:column}
+.services-container div{width:80%;margin-bottom:1rem}
+.content p{font-size:22px}
+.benefits h1{font-size:40px;margin-bottom:0;padding-left:0}
+.benefits_container{height:200px}
+.benefits_container2{height:200px}
+.loans div{z-index:3}
+.access,.access:after,.loans,.loans:after,.promos,.promos:after,.stocks,.stocks:after{height:200px;width:45vw}
+.access:after,.loans:after,.promos:after,.stocks:after{background:rgba(32,31,31,.6);width:100%}
+.access h2,.loans h2,.promos h2,.stocks h2{font-size:1.5rem}
+.access p,.loans p,.promos p,.stocks p{font-size:.7rem}
+.features{height:200px}
+.features h1{font-size:1.5rem}
+.features img{height:60px;width:70px}
+.benefits-header{margin:0}
+.hidden-signup{display:block}
+.login{display:block}
+.footer{margin-top:10rem}
+}

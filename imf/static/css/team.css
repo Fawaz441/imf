@@ -1,0 +1,25 @@
+.members{display:flex;align-items:center}
+.member{border:1px solid #000;position:relative;margin-right:4rem;padding:5px 1rem 1rem 1rem}
+.pic{height:50px;width:50px;border-radius:50%;overflow:hidden}
+.pic img{height:100%;width:100%}
+.title{right:10px;position:absolute;top:1rem;margin-bottom:1rem}
+.mem_info{margin-top:1rem}
+.mem_faded{transition:.5s ease-in-out}
+.members{margin-top:2rem;width:90%}
+.title h5{margin-bottom:5px}
+.members,h1{margin-left:2rem}
+@media(max-width:1184px){
+.members{width:100%}
+}
+@media(max-width:1000px){
+.title{position:static}
+}
+@media(max-width:770px){
+.members{flex-direction:column}
+.member{margin-bottom:2rem}
+}
+@media(max-width:500px){
+.mem_faded{opacity:0;transform:translateY(30px)}
+}
+
+p{margin-top:1rem;}

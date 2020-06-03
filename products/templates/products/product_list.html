@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load cart_tags %}
+{% load humanize %}
+{% block content %}
+{% load static %}
+<div class="product_container">
+  <link rel="stylesheet" href="{% static 'css/products.css' %}">
+    
+    <!--Carousel Wrapper-->
+    <div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel">
+      
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
+      
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        
+        <!--First slide-->
+        <div class="carousel-item active">
+          <div class="view shower">
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+              
+              <!-- Content -->
+              <div class="text-center white-text mx-5 wow fadeIn">
+                <h1 class="mb-4">
+                  <strong style="color:rgb(212, 248, 212);">SmartCup</strong>
+                </h1>
+                
+                <p class="mb-4 d-none d-md-block">
+                  <strong style="color:rgb(212, 248, 212);">The cheapest you can get..
+                  </strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/First slide-->
+        
+        
+          
+        
+          </div>
+          <!--/.Slides-->
+          <!--Controls-->
+          <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          <!--/.Controls-->
+          
+        </div>
+        <!--/.Carousel Wrapper-->
+        
+        
+        
+        
+        
+        <!--Main layout-->
+        <main>
+          <nav class="navbar search-purpose mt-5 ml-0">
+            <div class="container">
+              
+            
+            </div>
+            <!-- Collapsible content -->
+            
+          </nav>
+          <!--/.Navbar-->
+          
+          <!--Section: Products v.3-->
+          
+          
+          <!--Grid row-->
+          <div class="row wow fadeIn mt-2">
+            
+            {% for item in small_items %}
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-4 col-sm-4 mb-4">
+              <div class="card" style="background:rgb(221, 248, 239);">
+                
+                <!--Card image-->
+                <div class="view overlay">
+                  <a href="{{item.detail}}">
+                  <img src="{{item.image.url}}" class="card-img-top" alt="{{item.title}}" height="200px;">
+                </a>
+                  <a href="{{item.get_absolute_url}}">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+                <!--Card image-->
+                
+                <!--Card content-->
+                <div class="card-body text-left ">
+                  <!--Category & Title-->
+                  <h5>
+                    <strong>
+                      <a href="{{item.get_absolute_url}}" class="white-text lead" style="color:green;">{{item.item}}
+                      </a>
+                    </strong>
+                  </h5>
+                  
+                  <h4 class="font-weight-bold purple-text">
+                    <strong class="lead text-purple">&#8358;{{item.get_price|floatformat:2|intcomma}}</strong>
+                  </h4>
+                  
+                </div>
+                <!--Card content-->
+                
+              </div>
+              <!--Card-->
+              
+            </div>
+            <!--Grid column-->
+            {% endfor %}
+            
+            
+            <!--Fourth column-->
+            <div class="col-lg-3 col-md-6 mb-4">
+              
+              
+              
+            </div>
+            <!--Fourth column-->
+            
+          </div>
+          <!--Grid row-->
+          
+        <!--Section: Products v.3-->
+        
+        
+      </div>
+      {% endblock %}
+     
+        
+      {% block mobile_entry %}
+      {% if user.is_authenticated %}
+      
+      <a href="{% url 'users:user_home' %}" class="mobile_entry"><i class="fas fa-user"></i></a>
+      <a href="{% url 'products:order_final' %}" style="position: fixed;right:6rem;display:flex;align-items: center;color:green;">
+      <span class="badge badge-success">{{request.user|cart_count}}</span>
+      <i class="fas fa-shopping-cart"></i>
+    </a>
+      {% else %}
+      <a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+      {% endif %} 
+      {% endblock mobile_entry %}

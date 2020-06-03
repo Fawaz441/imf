@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Indus Mega Farm</title>
+    <link rel="stylesheet" href="{% static 'css/choices.css' %}">
+</head>
+<body>
+    <div class="backdrop"></div>
+    <div class="wrapper">
+        <div class="pop_modal">
+            <center>
+           <p>please Select Category </p>
+        </center>
+            <ul class="options">
+                <li><a class="first" href="{% url 'users:student_reg' %}">Student</a></li>
+                <li><a class="second" href="{% url 'users:farmer_reg' %}">Farmer</a></li>
+                <li><a class="third" href="{% url 'users:company_reg' %}">Company Owner</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

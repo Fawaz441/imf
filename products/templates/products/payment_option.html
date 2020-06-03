@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load paystack %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/payment_option.css' %}">
+<link rel="stylesheet" href="{% static 'css/animation.css' %}">
+<div class="stuffs bounceInDown">
+    <div class="show">
+        <img src="{% static 'images/logo.png' %}" alt="Indus-Mega-Farms">
+        <span style="color:green;font-size:14px;">Summary</span>
+    </div>
+    <div class="items">
+        <table style="margin-bottom:1rem;">
+            {% for item in user_order.order_items.all %}
+            <tr>
+                <td>{{item.item}}</td>
+                <td style="float:right;">({{item.quantity}})</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>TOTAL:</td>
+                <td style="float:right;">
+                    <span class="text-white bg-primary" style="padding:3px;border-radius: 5px;">
+                        &#8358;{{user_order.get_total_order_price|floatformat:2|intcomma}}
+                    </span></td>
+                </tr>
+            </table>
+            <h6 style="margin-bottom:5px;letter-spacing: 1px;">Delivery Details</h6>
+            
+            <table class="deets" style="background:rgb(221, 241, 192);">
+                <tr>
+                    <td>Name:</td>
+                    <td style="float:right;">{{request.user.first_name}} {{request.user.last_name}}</td>
+                </tr>
+
+                {% if user_order.delivery_location %}
+                <tr>
+                    <td>Location:</td>
+                    <td style="float:right;">
+                        {{user_order.delivery_location}}
+                        {% else %}
+                        <form action="" method="post" style="padding-left:10px;">
+                            {% csrf_token %}
+                            {{form.as_table}}
+                            <td>
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                        </td>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+            
+            <a href="{% url 'products:pay_on_delivery' %}" class="delivery_pay">Pay On Delivery</a>
+            <span style="display: block;text-align:center;">Or Pay Now</span>
+            {% paystack_button amount=amount email=email button_class='payment_btns' %}
+        </div>
+        {% endblock %}
+        
+        
+        

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% load cart_tags %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/order_view.css' %}">
+<main>
+<div class="container" style="height:calc(100vh - 80px);"> 
+<div class='table-responsive text-nowrap'>
+{% if old_orders %}
+<h3>Pending Orders</h3>
+
+<div class="old_orders">
+{% for old_order in old_orders %}
+<div class="old_order">
+    <div class="container-fluid bg-success text-white">
+        {% for item in old_order.order_items.all %}
+            {{item.item}}({{item.quantity}})&nbsp;&nbsp;
+        {% endfor %}
+    </div>
+    <p>&#8358;{{old_order.get_total_order_price|floatformat:2|intcomma}}</p>
+    <p>{{old_order.created_time}}</p>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+<h2>Your Cart</h2>
+<table class="table">
+<thead>
+    <tr>
+        <th>#</th>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Total Item Price</th>
+    </tr>
+</thead>
+<tbody>
+    {% for ordered_item in self_order.order_items.all %}
+    <tr>
+    <th scope="row">{{forloop.counter}}</th>
+    <td style="width:30px;" >{{ordered_item.item.item}}</td>
+    <td><a href="{% url 'products:remove_one' slug=ordered_item.item.slug %}"><i class="fas fa-minus  mr-2 red-text"></i></a>
+    {{ordered_item.quantity}} 
+    <a href="{% url 'products:add_to_cart' slug=ordered_item.item.slug %}"><i class="fas fa-plus blue-text ml-2"></i></a></td>
+    <td>
+    &#8358;{{ordered_item.get_final_price|floatformat:2|intcomma}}
+    <a href='{% url 'products:remove_whole' slug=ordered_item.item.slug %}'><i class='fas fa-trash float-right'></i></a>
+    </td>
+    </tr>
+    {%empty%}
+    <td><p>No order yet</p></td>
+    {% endfor %}
+    <tr class=" bg-success text-white">
+    <td></td>
+    <td colspan=2><b>Total Price:</b></td>
+    <td colspan><b>&#8358;{{self_order.get_total_order_price|floatformat:2|intcomma}}</b></td>
+    </tr>
+    <tr>
+        {% if self_order.get_total  %}
+    <td colspan=5><a class="shine btn btn-primary text-white float-right" href="{% url 'products:payment_option' %}">Checkout</a>
+        {% endif %}
+    </tr>
+    
+    
+</tbody>
+
+
+</table> 
+</div>
+</div>
+
+</main>
+
+
+{% endblock %}
+
+{% block mobile_entry %}
+{% if user.is_authenticated %}
+
+<a href="{% url 'users:user_home' %}" class="mobile_entry"><i class="fas fa-user"></i></a>
+{% else %}
+<a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+{% endif %} 
+{% endblock mobile_entry %}

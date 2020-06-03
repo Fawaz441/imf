@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cart_tags %}
+{% load humanize %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<span id="back"></span>
+<div class="overall-holder">
+    <div class="flex-container">
+        
+        <div class="info-holder">
+            <div class="info">
+                <div class="image-container">
+                    {% if request.user.student %}
+                    <img src="{% static 'images/emplo_64.png' %}" alt="">
+                    
+                    {% elif request.user.farmer %}
+                    <img src="{% static 'images/farmer.png' %}" alt="" style="width:70%;">
+                    
+                    {% elif request.user.company %}
+                    <img src="{% static 'images/company.png' %}" alt="">
+                    
+                    {% elif request.user.is_superuser %}
+                    <img src="{% static 'images/logo.png' %}" alt="">
+                    {% endif %}
+                    
+                    
+                </div>
+            </div>
+            <div class="user_details">
+                <p>
+                    {{request.user.first_name}} {{request.user.last_name}}
+                </p>
+                <p style="font-size:0.8em;">{{request.user.username}}</p>
+                {% if request.user.student %}
+                <span class="badge bg-white">Student</span>
+                {% elif request.user.farmer %}
+                <span class="badge bg-white">Farmer</span>
+                {% elif request.user.company %}
+                <span class="badge bg-white">Company</span>
+                {% elif request.user.is_superuser %}
+                <span class="badge bg-white">Admin</span>
+                {% endif %}
+                
+                
+            </div>
+        </div>
+        
+        <div class="orders">
+            <h3 class="title">Pending Orders.</h3>
+            <table>
+            {% for order in current_orders.all %}
+            <tr>
+                <td>{{order.created_time}}</td>
+                <td>&#8358;{{order.get_total_order_price|floatformat:2|intcomma}}</td>
+            </tr>
+            {% empty %}
+            <p>You have no pending orders.</p>
+            {% endfor %}
+        </table>
+            
+        </div>
+        <div class="news">
+            <h3>IMnews</h3>
+            <p>No new information at the moment.</p>
+        </div>
+    </div>
+    
+    <div class="features_and_others">
+        
+        <!-- IMwell  -->
+        <div class="bla">
+            <div class="text">
+                Access our well varieted store of quality 
+                products 
+                and purchase your choice at low prices.
+                Embark on a journey of exploring quality products.
+                <a href="{% url 'products:product' %}" 
+                style="display: block;"
+                class="well">
+                IMagrowell</a>
+            </div>
+            <div class="access-container-image-holder">
+                <img src="{% static 'images/warehouse.png' %}" alt="">
+            </div>
+        </div>
+        
+        <!-- Adverts -->
+        <div class="adverts bla">
+            <div class="text">
+                Have products you would like to advertise with Indus-Mega 
+                Farms? Advertise your goods and agro-related services
+                with us now.
+                <a href="#" style="display:block" class=" well advert-btn">
+                    IMadvert.</a>
+                </div>
+                <div class="access-container-image-holder">
+                    <img src="{% static 'images/manager.png' %}" alt="">
+                </div>
+            </div>
+            
+            <!-- IMsponsor -->
+            {% if request.user.company or request.user.is_superuser %}
+            <div class=" bla">
+                <div class="text">
+                    Are you interested in sponsoring agricultural 
+                    competitions held by Indus-Mega Farms?
+                    Or are you interested in investing with us? 
+                    Join our IMsponsor Program.
+                    <a href="#" style="display:block;" class="imsponsor well">
+                        IMsponsor
+                    </a>
+                </div>
+                <div class="access-container-image-holder">
+                    <img src="{% static 'images/wallet.png' %}" alt="">
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Competitions -->
+            {% if request.user.student or request.user.is_superuser %}
+            <div class=" bla">
+                <div class="text">
+                    Anticipate the upcoming IMchallenge 2021. It would be an experience
+                    you would never want to miss.
+                    <a href="{% url 'users:imchallenge' %}" style="display:block;" class="imchallenge well">
+                        IMchallenge
+                    </a>
+                </div>
+                <div class="access-container-image-holder">
+                    <img src="{% static 'images/trophy.svg' %}" alt="">
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if request.user.is_superuser or request.user.student %}
+            <!-- Crowdfunding -->
+            <div class=" bla">
+                <div class="text">
+                    As a student,you have the opportunity to opt in for 
+                    our crowdfunding scheme. Save with us and earn multiple
+                    benefits.
+                    <a href="#" style="display:block;" class="imcrowdy well">
+                        IMcrowdy
+                    </a>
+                </div>
+                <div class="access-container-image-holder">
+                    <img src="{% static 'images/capacity.png' %}" alt="">
+                </div>
+            </div>
+            
+            <!-- IMFoods -->
+            <div class=" bla">
+                <div class="text">
+                    Order for our IMfoods and get it at your doorstep
+                    instantly. IMfoods,Bringing quality,cheap food to students' doorsteps.
+                    <a href="#" style="display:block;" class="imrice well">
+                        IMfoods
+                    </a>
+                </div>
+                <div class="access-container-image-holder">
+                    <img src="{% static 'images/truck.png' %}" alt="">
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if request.user.farmer or request.user.is_superuser %}
+            <!-- IMEducate -->
+            <div class=" bla">
+                <div class="text">
+                    As a farmer, you get free access to our farming tips.
+                    Learn effective farm practices with us.
+                    <a href="#" style="display:block;" class="imeducate well">
+                        IMeducate
+                    </a>
+                </div>
+                <div class="access-container-image-holder">
+                    <img src="{% static 'images/touch.png' %}" alt="">
+                </div>
+            </div>
+            {% endif %}
+            
+            <a class="top">
+                <i class="fas fa-caret-up"></i>
+            </a>
+        </div>
+        
+    </div>
+    <div class="container">
+    <a href="{% url 'users:password_change' %}" style="float:right;">Change Password</a>
+
+    </div>
+    
+    <script>
+        var det = document.querySelector('.top');
+        det.addEventListener('click',function(){
+            window.scrollTo({
+                top:0,
+                left:0,
+            })
+        })
+    </script>
+    
+    
+    
+    
+    
+    
+    <style>.footer,.subfooter{display:none;}</style>
+    <!--
+        
+        capacity.png Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+manager.png Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+capacity1.png Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+agriculture.png Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+harvest.png Icons made by <a href="https://www.flaticon.com/authors/photo3idea-studio" title="photo3idea_studio">photo3idea_studio</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+touch.png Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+trophy.svg Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+trophy.png Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+warehouse.png Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+    -->
+    
+    {% endblock %}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    {% block mobile_entry %}
+    {% if user.is_authenticated %}
+    
+    <a href="{% url 'users:logout' %}" class="mobile_entry" style="font-size: 14px;padding-right:1rem;">Logout</a>
+    <a href="{% url 'products:order_final' %}" style="color:green;">
+    <span class="badge badge-success" style="position: absolute;right:6rem;">{{request.user|cart_count}}</span>&nbsp;
+    <i class="fas fa-shopping-cart"  style="position: absolute;right:7rem;"></i></a>
+    {% else %}
+    <a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+    {% endif %} 
+    {% endblock mobile_entry %}

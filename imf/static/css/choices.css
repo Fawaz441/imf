@@ -1,0 +1,21 @@
+body,html{padding:0;margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+a{text-decoration:none}
+.wrapper{display:flex;height:100vh;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.backdrop{position:absolute;height:100vh;width:100vw;background:rgba(0,0,0,.9);opacity:.2}
+.pop_modal{height:250px;background:green;border-radius:10px;width:70%;padding:1rem;text-align:center;position:absolute;animation:appear 1s ease-in-out;box-shadow:1px 1px 10px 3px #1be01b}
+.pop_modal p{color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem;border-bottom:2px solid #80cf80;width:fit-content;z-index:2}
+.options{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.options li{margin-bottom:2.8rem}
+.options li a{color:#fff;text-transform:uppercase;letter-spacing:1px}
+.first,.second,.third{padding:.5rem 1rem;border-radius:5px}
+.first{background:#9acd32}
+.second{background:#2af02a}
+.third{background:#3ac53a}
+@media(min-width:1000px){
+.pop_modal{width:60%}
+}
+@keyframes appear{
+0%{top:-300px;opacity:0}
+50%{top:calc(50vh - 141px)}
+100%{top:auto;opacity:1}
+}

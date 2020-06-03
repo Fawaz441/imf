@@ -1,0 +1,9 @@
+body{background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),url(../images/rice-min.jpg);background-size:cover;background-position:center}
+.form-control:focus{border-color:green;box-shadow:0 0 0 2px green}
+.footer,.subfooter{display:none}
+.hidden_signup{display:block!important}
+.alt-login{display:none}
+@media(max-width:760px){
+.mobile-signup{display:block}
+.signup{display:block}
+}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load cart_tags %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/team.css' %}">
+<div class="container-fluid">
+    <h1>Our Team</h1>
+    <div class="members">
+        <div class="member">
+            <div class="pic">
+                <img src="{% static 'images/manager.png' %}" alt="">
+            </div>
+            <div class="title">
+                <h5>Arinze.</h5>
+                <span>TECH MANAGER</span>
+            </div>
+            <p class="mem_info">
+                Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Accusantium aperiam 
+                laudantium temporibus nemo corporis, 
+                nihil molestiae distinctio tempora 
+                dignissimos iusto dolore. Repellat error voluptas, 
+                ut pariatur eius laborum vero illo.
+            </p>
+        </div>
+        
+        <div class="member">
+            <div class="pic">
+                <img src="{% static 'images/vegetable-min.jpg' %}" alt="">
+                
+            </div>
+            <div class="title">
+                <h5>Arinze.</h5>
+                <span>TECH MANAGER</span>
+            </div>
+            <p class="mem_faded">
+                Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Accusantium aperiam 
+                laudantium temporibus nemo corporis, 
+                nihil molestiae distinctio tempora 
+                dignissimos iusto dolore. Repellat error voluptas, 
+                ut pariatur eius laborum vero illo.
+            </p>
+        </div>
+        
+        <div class="member">
+            <div class="pic">
+                <img src="{% static 'images/wallet.png' %}" alt="">
+                
+            </div>
+            <div class="title">
+                <h5>Arinze.</h5>
+                <span>TECH MANAGER</span>
+            </div>
+            <p class="mem_faded">
+                Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Accusantium aperiam 
+                laudantium temporibus nemo corporis, 
+                nihil molestiae distinctio tempora 
+                dignissimos iusto dolore. Repellat error voluptas, 
+                ut pariatur eius laborum vero illo.
+            </p>
+        </div>
+    </div>
+    
+</div>
+<script src="{% static 'js/team.js' %}"></script>
+{% endblock %}
+   
+{% block mobile_entry %}
+{% if user.is_authenticated %}
+
+<a href="{% url 'users:user_home' %}" class="mobile_entry"><i class="fas fa-user"></i></a>
+<a href="{% url 'products:order_final' %}" style="position: fixed;right:6rem;display:flex;align-items: center;color:green;">
+<span class="badge badge-success">{{request.user|cart_count}}</span>
+<i class="fas fa-shopping-cart"></i>
+</a>
+{% else %}
+<a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+{% endif %} 
+{% endblock mobile_entry %}

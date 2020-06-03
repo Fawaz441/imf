@@ -1,0 +1,34 @@
+*{margin:0;padding:0}
+body,html{background:url(../images/chicken-min.jpg);background-position:center;background-repeat:no-repeat;background-size:cover;display:flex;flex-direction:column;align-items:center;width:100%;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;position:relative;overflow-x:hidden}
+body::before{content:'';position:absolute;height:100%;width:100%;left:0;top:0;background:rgba(0,0,0,.3)}
+*{z-index:1}
+h1,h4,p{color:#fff}
+.lead-race{margin-top:4vh}
+.lead-race h1{letter-spacing:1px;font-size:2.5em;padding-left:1.3rem}
+.date_and_info{text-align:left;margin-top:5%;padding-left:1.3rem}
+.date_and_info h4{font-weight:400;font-size:1.3rem}
+.countdown{display:flex;color:#fff;margin-top:10%;width:100%;justify-content:center}
+.countdown div h1{font-size:100px}
+.countdown div{margin-right:50px}
+.countdown div span{text-align:center;width:100%;display:block}
+.mailist_list_request{margin-top:3%;text-align:center}
+.mailist_list_request p{padding-bottom:1rem}
+.mailist_list_request input{border:none;outline:0}
+.mailist_list_request input[type=email]{padding:.5rem .7rem;border-radius:3px;color:#2e2929}
+.mailist_list_request input[type=submit]{padding:.5rem 1rem;background:#0fdd0f;color:#fff;border-radius:5px}
+@media(max-width:840px){
+.lead-race h1{font-size:30px}
+.date_and_info h4{font-size:18px}
+.lead-race{margin-left:2rem;margin-right:2rem}
+.mailist_list_request{margin-left:2rem;margin-right:2rem;margin-top:4%}
+}
+@media(max-width:675px){
+.countdown div h1{font-size:50px}
+}
+@media(max-width:470px){
+.countdown div h1{font-size:30px}
+.countdown div{margin-right:1.4rem}
+}
+@media(max-height:500px){
+.countdown{margin-top:30px}
+}

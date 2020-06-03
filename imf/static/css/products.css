@@ -1,0 +1,10 @@
+.product_container{height:100%;width:100%;position:relative;display:flex;padding:1rem 2rem;flex-direction:column;justify-content:center;margin-bottom:3rem}
+.jumbo_container{height:400px;width:100%;display:flex;position:relative;align-items:center;justify-content:center}
+.jumbo_container img{height:100%;width:90%;border-radius:3px;display:block;margin:0 auto;position:absolute}
+h3{margin:3rem 0 10px 0!important}
+.small_container{display:flex;justify-content:center;width:100%;flex-wrap:wrap;border-radius:10px}
+.baby_container{margin:0 .5%;height:300px;margin-bottom:3rem}
+.baby_container img{height:65%;width:100%}
+.product_text{height:35%;background:#d0ff3e;display:flex;flex-direction:column;justify-content:center;align-items:center;border-bottom-left-radius:5px;border-bottom-right-radius:5px}
+.cart_adder{padding:6px 20px;border:1px solid green;color:green;overflow:hidden;position:relative;display:inline-block;background:0 0;transition:all .8s}
+.shower{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.3)),url(../../images/imf/benefit2.JPG);background-position:center;background-size:cover;background-repeat:no-repeat;height:350px}

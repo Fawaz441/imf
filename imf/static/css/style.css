@@ -1,0 +1,66 @@
+@font-face{src:url(../fonts/Roboto-Regular.ttf);font-family:main-font}
+*{box-sizing:border-box;font-family:main-font}
+a:hover{text-decoration:none!important;color:green}
+body,html{padding:0;margin:0;width:100%;position:relative;overflow-x:hidden;background:#f2f2f2;scroll-behavior:smooth}
+.alt-login:hover,.alt-signup{color:green;text-decoration:none}
+.main-header{height:90px;display:flex;position:fixed;align-items:center;background:#f2f2f2;width:100%;z-index:3}
+@keyframes shake{
+0%{transform:translateY(0)}
+50%{transform:translateY(-16px)}
+100%{transform:translateY(0)}
+}
+.logo{height:100%;display:flex;align-items:center;padding-left:42px}
+.logo img{height:60px;width:80px;animation:shake .1s ease-in}
+.nav-list{display:flex;list-style:none;align-items:center;position:absolute;right:2rem}
+.nav-list a{font-size:20px;padding-right:21px;text-decoration:none;color:#333}
+.large_display{position:relative;display:block;overflow:hidden}
+.mobile_entry{display:none;padding-right:21px;text-decoration:none;color:green;position:absolute;right:1rem;font-size:1rem}
+.nav-list a:hover{color:#10740d}
+.hover{width:60%;height:2px;display:block;position:absolute;background:green;left:-100%;bottom:0;margin:0;padding:0;transition:.7s}
+.large_display:hover .hover{left:0}
+.hidden_signup{display:none}
+.mobile_nav{height:100vh;position:fixed;background:#fff;z-index:5;width:250px;display:flex;justify-content:center;left:-100%;transition:.5s ease-in-out}
+.main_mobile li a{color:green}
+.exit{position:absolute;display:block;background:green;width:30px;height:2px;right:1rem;top:1.5rem;transform:rotate(360deg);cursor:pointer;transition:1s ease-in-out}
+.exit::before{content:'';position:absolute;height:100%;width:100%;background:green;bottom:0;transform:rotate(-90deg)}
+.move{right:1rem}
+.main_mobile{display:flex;flex-direction:column;padding:0;margin-top:50%;list-style:none;position:relative}
+.main_mobile a{text-decoration:none;text-transform:uppercase;color:#000;font-size:1.1rem;display:flex;align-items:center}
+.main_mobile a img{height:25px;width:25px;padding-left:10px}
+.main_mobile li{padding-bottom:2rem}
+.main_mobile li{left:100%;opacity:0;transform:translateY(16px);transition:opacity .3s ease-in-out,left .5s ease-in-out,transform .5s ease-in-out}
+.display li{transform:translateY(0);opacity:1;left:0}
+.display li:nth-of-type(1){transition-delay:.5s}
+.display li:nth-of-type(2){transition-delay:1s}
+.display li:nth-of-type(3){transition-delay:1.5s}
+.display li:nth-of-type(4){transition-delay:2s}
+.backdrop{background:rgba(0,0,0,.7);height:100vh;width:100vw;z-index:4;top:0;left:0;position:fixed;transition:.5s;display:none;opacity:0}
+.containers{width:100%;display:flex;flex-direction:column;margin-bottom:5rem;min-height:100vh}
+.footer{width:100%;padding:2rem;display:grid;grid-template-columns:1fr 1fr 1fr;align-content:center;justify-items:center;background:#05694a;color:#f9f9f9ce}
+.footer h4{font-weight:400;margin:0;color:#eee}
+.footer ul{list-style:none}
+.footer h4,.footer ul li{padding-bottom:7px;padding-top:7px;border-bottom:1px #b8b3b388 solid;width:20vw}
+.two{color:#61e75a}
+.footer ul li,.footer ul li a{transition:.2s all;color:#fff}
+.footer ul li a:hover{color:#f9f9f9}
+.scrolled{background:rgba(233,240,233,.931);box-shadow:0 3px 1rem rgba(0,0,0,.1)}
+.subfooter{background:#077743;width:100%;padding:1rem 4rem;color:#f5f5f5;text-align:center}
+.shine{box-shadow:1px 1px 3px 1px #bdb7b7,-1px -1px 3px 1px #c2b8b8}
+#get,.alt-nav{display:none}
+@media(max-width:952px){
+.advert1,.advert1::after{width:350px}
+}
+@media(max-width:760px){
+.footer{grid-template-columns:1fr;justify-items:stretch;padding-left:0}
+.features_container{padding:2rem}
+.footer ul{padding-left:.8rem}
+.footer ul li{padding-bottom:0;border-bottom:none;width:100%}
+.footer h4{width:fit-content;padding-bottom:0;font-size:1.2rem}
+.logo,.nav-list{display:none}
+.alt-nav{display:flex;position:absolute;align-items:center;justify-content:center;width:100%;height:100%}
+.alt-nav img{height:61px}
+#get{display:block;position:absolute;left:1rem;top:30px}
+.one{font-size:40px}
+.content p{font-size:17px!important}
+.mobile_entry{display:block}
+}

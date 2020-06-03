@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load cart_tags %}
+<div class="container bg-success text-white">
+    <br>
+    <h2 class="mb-1">Welcome {{user.username}}</h2>
+    <form action="" method="get">
+
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" cols="30" rows="10">
+
+        </textarea><br>
+        <input type="submit" value="Send" class="btn-white btn" style="background:#fff;color:green;">
+    </form>
+</div>
+<style>
+    textarea,label,input{display:block;}
+    form{width:50vw;padding:1rem;}
+</style>
+{% endblock %}
+{% block mobile_entry %}
+{% if user.is_authenticated %}
+
+<a href="{% url 'users:user_home' %}" class="mobile_entry" style="color:green;"><i class="fas fa-user"></i></a>
+<a href="{% url 'products:order_final' %}" style="position: fixed;right:6rem;display:flex;align-items: center;color:green;">
+    <span class="badge badge-success">{{request.user|cart_count}}</span>
+    <i class="fas fa-shopping-cart"></i>
+</a>
+{% else %}
+<a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+{% endif %} 
+{% endblock mobile_entry %}

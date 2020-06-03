@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block alt_nav_login %}
+    <a href="{% url 'users:login' %}" class="alt-login alt-signup"><i class="fas fa-user"></i></a>
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+<div class="student_form container text-white">
+    <h1>Sign Up</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-large btn-success" value="Sign Up">
+    </form>
+</div>
+<style>
+    .help-block{font-size:0.7rem;}
+</style>
+<br>
+<br>
+<br>
+{% endblock %}
+{% block mobile_entry %}
+               
+                <a href="{% url 'users:login' %}" class="mobile_entry">Login</a>
+                {% endblock mobile_entry %}

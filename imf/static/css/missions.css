@@ -1,0 +1,26 @@
+.mission_header{height:400px;background:url(../images/megan-thomas-xMh_ww8HN_Q-unsplash-min.jpg);background-position:center;background-size:cover;background-repeat:no-repeat;position:relative}
+.mission_header::before{content:'';position:absolute;height:100%;width:100%;background:green;opacity:.4}
+.mission_header div{margin-left:2rem;position:absolute;bottom:1rem}
+.mission_header div h1{color:#fff;font-size:70px;letter-spacing:2px;line-height:72px}
+body,html{margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+h2{color:green}
+.mission_wrapper{margin-left:2rem;margin-right:1rem}
+.missions,.vision{width:70%}
+.missions h2,.missions p,.vision h2,.vision p{margin:0}
+.vision h2{margin-top:2rem;margin-bottom:0;letter-spacing:1px}
+.vision p{margin-top:6px;color:#0a3509}
+.missions h2{margin-top:1rem;margin-bottom:0;letter-spacing:1px}
+.missions p{margin-top:6px;color:#0a3509;line-height:1.1rem}
+.missions p:nth-of-type(1),.missions p:nth-of-type(2){margin-bottom:1.2rem}
+.containers{margin:0}
+.missions{margin-bottom:4rem;margin-top:1.2rem}
+.missions p svg{transform:scale(.5)}
+@media(max-width:1000px){
+.missions,.vision{width:100%}
+}
+@media(max-width:800px){
+.mission_header{height:300px}
+.mission_wrapper{margin-left:1rem}
+.mission_header div h1{font-size:30px;line-height:35px;bottom:1.5rem}
+h2{font-size:1.3rem}
+}

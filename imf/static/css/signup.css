@@ -1,0 +1,5 @@
+.containers{transition:all .7s;height:100%}
+body{background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),url(../images/rice-min.jpg);background-size:cover;background-position:center}
+.form-control:focus{border-color:green;box-shadow:0 0 0 2px green}
+.footer,.subfooter{display:none}
+h1{margin:1rem 0}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="jumbotron container">
+    <h1  style="color: green;">Farm Details</h1>
+<form method="POST">
+    {% csrf_token %}
+{{form|crispy}}
+<br>
+<input type="submit" value="Submit" class="btn btn-success">
+</form>
+<style>.footer,.subfooter{display: none;}</style>
+{% endblock %}
+</div>
